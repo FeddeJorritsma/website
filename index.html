@@ -19,9 +19,26 @@
         </header>
 
         <main>
-            <div class="main-image">
-                <img src="images/IMG_4718.jpg" alt="Beschrijvende tekst voor je foto">
-                <p class="caption">Kip is lekker</p>
+            <div class="main-image slideshow-container">
+            
+                <div class="slide">
+                    <img src="images/IMG_4718.jpg" alt="Beschrijving foto 1">
+                    <p class="caption">Dit is de eerste afbeelding</p>
+                </div>
+            
+                <div class="slide">
+                    <img src="images/jouw-tweede-foto.jpg" alt="Beschrijving foto 2">
+                    <p class="caption">Dit is de tweede afbeelding</p>
+                </div>
+            
+                <div class="slide">
+                    <img src="images/jouw-derde-foto.jpg" alt="Beschrijving foto 3">
+                    <p class="caption">Dit is de derde afbeelding</p>
+                </div>
+                
+                <a class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></a>
+                <a class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></a>
+            
             </div>
 
             <p class="intro">
