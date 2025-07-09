@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "nl" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    
+    {{/* Link naar je CSS-bestand */}}
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+    
+    {{/* Link naar Font Awesome */}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        {{/* Laad de header */}}
+        {{ partial "header.html" . }}
+
+        <main>
+            {{/* Hier wordt de unieke content van elke pagina geladen */}}
+            {{ block "main" . }}{{ end }}
+        </main>
+        
+        {{/* Laad de footer */}}
+        {{ partial "footer.html" . }}
+    </div>
+
+    {{/* Laad je JavaScript aan het einde van de body */}}
+    <script src="{{ "/js/slideshow.js" | relURL }}"></script>
+</body>
+</html>
