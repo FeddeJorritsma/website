@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedde Jorritsma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">About</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="main-image slideshow-container">
+            
+                <div class="slide">
+                    <img src="images/IMG_4718.jpg" alt="Miyajima">
+                    <p class="caption">Miyajima, where the sacred gate floats on the tide</p>
+                </div>
+            
+                <div class="slide">
+                    <img src="images/Fuji.JPG" alt="Fuji">
+                    <p class="caption">A Fuji-on-Fuji Sunrise</p>
+                </div>
+            
+                <div class="slide">
+                    <img src="images/kyoto.JPG" alt="Kyoto">
+                    <p class="caption">The timeless grace of Kyoto</p>
+                </div>
+
+                <div class="slide">
+                    <img src="images/odaiba.jpg" alt="Odaiba">
+                    <p class="caption">Sunset in Odaiba</p>
+                </div>
+                
+                <a class="prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></a>
+                <a class="next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></a>
+            
+            </div>
+
+            <p class="intro">
+                Personal website
+            </p>
+
+            <div class="lists-container">
+                <div class="list-column">
+                    <h2>Recente Projecten</h2>
+                    <div class="list-item">
+                        <h3><a href="#">Project Titel 1</a></h3>
+                        <p class="meta">8 juli 2025 • categorie • software</p>
+                    </div>
+                    <div class="list-item">
+                        <h3><a href="#">Een Ander Project</a></h3>
+                        <p class="meta">15 juni 2025 • categorie • design</p>
+                    </div>
+                    <div class="list-item">
+                        <h3><a href="#">Nog een Project</a></h3>
+                        <p class="meta">1 mei 2025 • categorie • data</p>
+                    </div>
+                    <a href="#" class="more-link">MEER PROJECTEN ▸</a>
+                </div>
+
+                </div>
+        </main>
+
+        <footer>
+            <a href="https://github.com/FeddeJorritsma" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/fedde-jorritsma-4a2b7220a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="feddejorritsma@proton.me" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </footer>
+
+    </div>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Functie om van slide te wisselen (n = 1 voor volgende, n = -1 voor vorige)
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Hoofdfunctie om de slides te tonen/verbergen
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        
+        // Ga terug naar de eerste slide als je aan het einde bent
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        
+        // Ga naar de laatste slide als je bij de eerste op 'vorige' klikt
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        
+        // Verberg eerst alle slides
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        
+        // Toon alleen de huidige slide
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+</body>
+</html>
