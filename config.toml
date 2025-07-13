@@ -1,4 +1,4 @@
-baseURL = 'https://feddejorritsma.com'
+baseURL = 'https://feddejorritsma.github.io/website/'
 languageCode = 'en-us'
 title = 'Fedde Jorritsma'
 theme = 'fedde-theme'
