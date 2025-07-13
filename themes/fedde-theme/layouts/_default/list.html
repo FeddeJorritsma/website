@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main class="container">
+
+    <header class="page-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}
+            <div class="intro">
+                {{ . }}
+            </div>
+        {{ end }}
+    </header>
+
+    <div class="lists-container">
+        <div class="list-column">
+            
+            {{/* We loopen hier door alle pagina's binnen de 'projects' sectie.
+                In tegenstelling tot de homepage gebruiken we hier .Pages (alle) 
+                in plaats van 'first 3'. 
+            */}}
+            {{ range .Pages.ByDate.Reverse }}
+                <div class="list-item">
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    <p class="meta">{{ .Date.Format "2 January 2006" }} • {{ .Params.category }} • {{ .Params.software }}</p>
+                </div>
+            {{ end }}
+
+        </div>
+    </div>
+
+</main>
+{{ end }}

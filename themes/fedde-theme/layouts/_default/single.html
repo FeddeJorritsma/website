@@ -1,0 +1,129 @@
+{{ define "main" }}
+<main class="container">
+    <article class="post">
+        <header class="post-header">
+            <h1>{{ .Title }}</h1>
+        </header>
+
+        <section class="post-content">
+            {{ .Content }}
+        </section>
+
+        {{/* --- FOTOGALERIJ --- */}}
+        {{ $images := .Resources.ByType "image" }}
+
+        {{ if $images }}
+        <style>
+            /* Stijlen voor de slideshow container */
+            .slideshow-container {
+                position: relative;
+                margin: auto;
+            }
+
+            /* Verberg alle slides standaard */
+            .slide {
+                display: none;
+            }
+
+            /* Stijl voor de pijltjes */
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                background-color: rgba(0, 0, 0, 0.3);
+                transition: background-color 0.3s ease;
+                user-select: none; /* Voorkomt tekstselectie */
+                z-index: 2; /* Zorgt dat pijltjes boven de afbeelding staan */
+            }
+
+            /* Positioneer het 'volgende' pijltje aan de rechterkant */
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            /* Positioneer het 'vorige' pijltje aan de linkerkant */
+            .prev {
+                left: 0;
+                border-radius: 0 3px 3px 0;
+            }
+
+            /* Donkerdere achtergrond bij hover */
+            .prev:hover, .next:hover {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            /* Stijl voor de caption tekst */
+            .slide .caption {
+                font-size: 0.9rem;
+                color: #555;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .slide img {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+
+        <div class="slideshow-container">
+            {{/* Genereer een slide voor elke afbeelding */}}
+            {{ range .Resources.Match "**.jpg" }}
+            <div class="slide">
+                <img src="{{ .RelPermalink }}" alt="{{ .Name }}">
+                <div class="caption">{{ .Params.caption | default .Name }}</div>
+            </div>
+            {{ end }}
+
+            {{/* Navigatiepijltjes */}}
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let currentIndex = 0;
+                const slides = document.querySelectorAll('.slide');
+                const prevButton = document.querySelector('.prev');
+                const nextButton = document.querySelector('.next');
+
+                function showSlide(index) {
+                    // Verberg alle slides
+                    slides.forEach(slide => {
+                        slide.style.display = 'none';
+                    });
+
+                    // Toon de juiste slide
+                    slides[index].style.display = 'block';
+                }
+
+                nextButton.addEventListener('click', function () {
+                    // Ga naar de volgende slide, of terug naar de eerste (loopen)
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                });
+
+                prevButton.addEventListener('click', function () {
+                    // Ga naar de vorige slide, of naar de laatste (loopen)
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    showSlide(currentIndex);
+                });
+
+                // Toon de eerste slide bij het laden
+                if (slides.length > 0) {
+                    showSlide(currentIndex);
+                }
+            });
+        </script>
+        {{ end }}
+        {{/* --- EINDE FOTOGALERIJ --- */}}
+
+    </article>
+</main>
+{{ end }}

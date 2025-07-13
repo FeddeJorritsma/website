@@ -1,0 +1,24 @@
+baseURL = 'http://feddejorritsma.com/'
+languageCode = 'en-us'
+title = 'Fedde Jorritsma'
+theme = 'fedde-theme'
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 20
+
+[[menu.main]]
+  name = "Photos"  # <-- NIEUW
+  url = "/photos/"
+  weight = 25      # <-- Gewicht tussen Projects en About
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 30
