@@ -128,7 +128,10 @@ footer a:hover {
 }
 
 /* Mobiele weergave */
-@media (max-width: 600px) { /* Was 600px */
+
+
+
+@media (max-width: 720px) {
     .lists-container {
         flex-direction: column;
         gap: 0;
@@ -142,7 +145,22 @@ footer a:hover {
         flex-direction: column;
         gap: 1rem;
     }
+
+    /* === VOEG DEZE CODE TOE === */
+    header nav {
+        /* Zorgt ervoor dat de knoppen netjes centreren en kunnen 'wrappen' als het echt niet past */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav a {
+        margin: 0 0.5rem;  /* Verklein de horizontale ruimte tussen de knoppen */
+        font-size: 0.9rem; /* Maak de tekst iets kleiner */
+    }
+    /* === EINDE TOEGEVOEGDE CODE === */
 }
+
 .slideshow-container {
     position: relative;
     margin-bottom: 2rem;
