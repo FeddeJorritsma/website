@@ -65,6 +65,9 @@ main .intro {
     text-align: left;
     margin-bottom: 3rem;
 }
+main .content {
+  padding-top: 2rem;
+}
 
 /* Kolommen voor projecten en blog */
 .lists-container {
