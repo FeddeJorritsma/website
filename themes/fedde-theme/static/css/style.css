@@ -211,7 +211,7 @@ footer a:hover {
 .post-header {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .post-header h1 {
