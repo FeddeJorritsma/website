@@ -34,7 +34,6 @@ img {
     max-width: 960px; /* Was 800px */
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    padding-top: 20px; /* Een kleinere waarde */
 }
 
 /* Header en Navigatie */
@@ -88,7 +87,7 @@ main .intro {
 }
 
 .list-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .list-item h3 {
@@ -138,7 +137,7 @@ footer a:hover {
     }
     
     .list-column {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     header {
@@ -163,7 +162,7 @@ footer a:hover {
 
 .slideshow-container {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .slide {
